@@ -3,8 +3,8 @@ package brayan_moreno;
 import processing.core.PApplet;
 
 public class Lluvia {
-	PApplet app;
-	float x, y, z, len, yVel;
+	protected PApplet app;
+	protected float x, y, z, len, yVel;
 
 	public Lluvia(PApplet app) {
 		this.app = app;
