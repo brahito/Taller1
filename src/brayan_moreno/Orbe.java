@@ -1,0 +1,45 @@
+package brayan_moreno;
+
+import processing.core.PApplet;
+
+public abstract class Orbe {
+	PApplet app;
+	protected int x, y, tam, color, vel, sec;
+
+	public Orbe(PApplet app) {
+		this.app = app;
+		tam = 40;
+		vel = (int) ((int) 1 + (Math.random() * 15));
+		sec = 0;
+	}
+
+	public abstract void pintar();
+
+	public abstract void mover();
+
+	public void moverTodos() {
+		
+		if (app.frameCount == 1 % 60) {
+			sec++;
+		}
+		System.out.println(sec);
+
+		if (sec < 5 && x < app.width/2 )
+			x += vel;
+		if (sec < 5 && x > app.width/2)
+			x -= vel;
+		
+	}
+
+	public boolean validar(Protagonista p) {
+		if (PApplet.dist(p.getX(), p.getY(), x, y) < tam) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public int getY() {
+return y;
+	}
+}

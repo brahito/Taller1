@@ -8,19 +8,30 @@ public class Main extends PApplet {
 	public static void main(String[] args) {
 		PApplet.main("brayan_moreno.Main");
 	}
+
 	public void settings() {
-		size(1200,700);
+		size(1200, 700);
 	}
+
 	public void setup() {
-		log=new Logica(this);
+		log = new Logica(this);
 	}
+
 	public void draw() {
 		background(235);
 		log.pintar();
 	}
+
 	public void keyPressed() {
-		log.presionar();
+		
 	}
-	
+
+	public void mousePressed() {
+		log.clic();
+	}
+
+	public void mouseDragged() {
+		
+	}
 
 }
