@@ -16,6 +16,7 @@ public class Nubes {
 	public void pintar(int x) {
 		app.fill(153, 153, 153, 150);
 		app.noStroke();
+
 		app.ellipseMode(PApplet.CENTER);
 		app.ellipse(x, y, tam + largo + 20, tam);
 		app.ellipse(x - tam / 2, y + tam / 2, tam + largo, tam);

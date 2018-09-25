@@ -2,15 +2,15 @@ package brayan_moreno;
 
 import processing.core.PApplet;
 
-public abstract class Orbe {
+public abstract class Orbe implements Comparable<Orbe> {
 	PApplet app;
-	protected int x, y, tam, color, vel, sec;
+	protected int x, y, tam, color, vel, sec,milSec;
 
 	public Orbe(PApplet app) {
 		this.app = app;
 		tam = 40;
-		vel = (int) ((int) 1 + (Math.random() * 15));
-		sec = 0;
+		vel = (int) ((int) 3 + (Math.random() * 10));
+		milSec = app.frameCount;
 	}
 
 	public abstract void pintar();
@@ -19,16 +19,18 @@ public abstract class Orbe {
 
 	public void moverTodos() {
 		
-		if (app.frameCount == 1 % 60) {
+		if (app.frameCount % 30==0) {
 			sec++;
 		}
-		System.out.println(sec);
 
-		if (sec < 5 && x < app.width/2 )
+		if (sec < 2 && x < app.width/2 )
 			x += vel;
-		if (sec < 5 && x > app.width/2)
+		if (sec < 2 && x > app.width/2)
 			x -= vel;
 		
+	}
+	public int compareTo(Orbe o) {
+		return color-o.color;
 	}
 
 	public boolean validar(Protagonista p) {
