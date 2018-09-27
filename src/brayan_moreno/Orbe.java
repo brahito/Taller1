@@ -2,7 +2,7 @@ package brayan_moreno;
 
 import processing.core.PApplet;
 
-public abstract class Orbe implements Comparable<Orbe> {
+public abstract class Orbe  {
 	PApplet app;
 	protected int x, y, tam, color, vel, sec,milSec;
 
@@ -29,9 +29,7 @@ public abstract class Orbe implements Comparable<Orbe> {
 			x -= vel;
 		
 	}
-	public int compareTo(Orbe o) {
-		return color-o.color;
-	}
+	
 
 	public boolean validar(Protagonista p) {
 		if (PApplet.dist(p.getX(), p.getY(), x, y) < tam) {
